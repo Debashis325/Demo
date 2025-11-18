@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEMO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Vehicles</h2>
+      <!-- Draggable Vehicle Images -->
+      <div class="vehicle-list">
+        <img src="car.png" alt="Car" class="vehicle" draggable="true" id="car">
+        <img src="bike.png" alt="Bike" class="vehicle" draggable="true" id="bike">
+        <img src="truck.png" alt="Truck" class="vehicle" draggable="true" id="truck">
+        <img src="ambulance.png" alt="Ambulance" class="vehicle" draggable="true" id="ambulance">
+      </div>
+    </div>
+      
+      
+    </div>
+    <div class="junction">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-labelledby="title desc">
+        <title id="title">Responsive 4-way junction</title>
+        <desc id="desc">An overhead view of a 4-way junction with lane markings and crosswalks. Scales to fit any screen size.</desc>
+
+        <!-- Background (grass/area around roads) -->
+        <rect x="0" y="0" width="1000" height="1000" fill=lightgreen />
+
+        <!-- Horizontal road (centered) -->
+        <rect x="0" y="420" width="1000" height="180" class="road"/>
+        <!-- Vertical road (centered) -->
+        <rect x="420" y="0" width="170" height="1000" class="road"/>
+
+        <!-- Road shoulders -->
+        <rect x="0" y="400.7" width="1000" height="20" class="shoulder" />
+        <rect x="0" y="580" width="1000" height="20" class="shoulder" />
+        <rect x="400.7" y="0" width="20" height="1000" class="shoulder" />
+        <rect x="580" y="0" width="20" height="1000" class="shoulder" />
+
+        <!-- Lane markings - horizontal dashed center lines -->
+        <line x1="0" y1="500" x2="400" y2="500" class="dash" />
+        <line x1="610" y1="500" x2="1000" y2="500" class="dash" />
+
+        <!-- Lane markings - vertical dashed center lines -->
+        <line x1="500" y1="0" x2="500" y2="400" class="dash" />
+        <line x1="500" y1="610" x2="500" y2="1000" class="dash" />
+
+        <!-- Decorative separators -->
+        <g stroke="#fff" stroke-width="3">
+          <line x1="0" y1="420" x2="1000" y2="420" opacity="0.06" />
+          <line x1="0" y1="580" x2="1000" y2="580" opacity="0.06" />
+          <line x1="420" y1="0" x2="420" y2="1000" opacity="0.06" />
+          <line x1="580" y1="0" x2="580" y2="1000" opacity="0.06" />
+        </g>
+
+        <!-- Lane areas for dropping vehicles left lane(invisible, for drag-and-drop) -->
+        <rect x="0" y="420" width="400" height="80" class="lane top left-lane" data-lane="-xtop" fill="transparent" />
+        <rect x="600" y="500" width="400" height="80" class="lane bottom left-lane" data-lane="xbottom" fill="transparent" />
+        <rect x="420" y="600" width="80" height="400" class="lane left-lane" data-lane="-yleft" fill="transparent" />
+        <rect x="500" y="0" width="80" height="400" class="lane left-lane" data-lane="yright" fill="transparent" />
+
+        <!-- Lane areas for dropping vehicles right lane (invisible, for drag-and-drop) -->
+        <rect x="600" y="420" width="400" height="80" class="lane top right-lane" data-lane="xtop" fill="transparent" />
+        <rect x="0" y="500" width="400" height="80" class="lane bottom right-lane" data-lane="-xbottom" fill="transparent" />
+        <rect x="420" y="0" width="80" height="400" class="lane right-lane" data-lane="yleft" fill="transparent" />
+        <rect x="500" y="600" width="80" height="400" class="lane right-lane" data-lane="-yright" fill="transparent" />
+
+        <!-- Traffic lights -->
+        <g class="traffic-light top-light" transform="translate(570, 400) rotate(90)">
+          <rect width="20" height="60" fill="#333" rx="5" />
+          <circle cx="10" cy="10" r="5" class="red" />
+          <circle cx="10" cy="30" r="5" class="yellow" />
+          <circle cx="10" cy="50" r="5" class="green" />
+        </g>
+        <g class="traffic-light bottom-light" transform="translate(490, 580) rotate(90)">
+          <rect width="20" height="60" fill="#333" rx="5" />
+          <circle cx="10" cy="10" r="5" class="red" />
+          <circle cx="10" cy="30" r="5" class="yellow" />
+          <circle cx="10" cy="50" r="5" class="green" />
+        </g>
+        <g class="traffic-light left-light" transform="translate(400, 430)">
+          <rect width="20" height="60" fill="#333" rx="5" />
+          <circle cx="10" cy="10" r="5" class="red" />
+          <circle cx="10" cy="30" r="5" class="yellow" />
+          <circle cx="10" cy="50" r="5" class="green" />
+        </g>
+        <g class="traffic-light right-light" transform="translate(580, 510)">
+          <rect width="20" height="60" fill="#333" rx="5" />
+          <circle cx="10" cy="10" r="5" class="red" />
+          <circle cx="10" cy="30" r="5" class="yellow" />
+          <circle cx="10" cy="50" r="5" class="green" />
+        </g>
+      </svg>
+      <div class="controls">
+        <button id="run">Run</button>
+        <button id="random">Random</button>
+        <button id="delete">Delete</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
